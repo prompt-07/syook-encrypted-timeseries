@@ -1,10 +1,17 @@
 const express = require('express')
-const app = express()
+var cors = require('cors')
+
 const appRouter = require('./services/approuter')
 const establishConn = require('./services/conn')
 
-establishConn()
+
+const app = express()
+
 app.use(express.json())
+app.use(cors())
+
+establishConn()
+
 console.log("here")
 app.use('/api', appRouter);
 
