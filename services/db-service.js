@@ -8,3 +8,11 @@ module.exports.saveToDb = async(name, origin, destination, timestamp) => {
         console.log(err)
     }
 }
+
+module.exports.getFromDB = async(req, res) => {
+    try{
+        res.send('Hello')
+    }catch(err){
+        console.log(err)
+    }
+}

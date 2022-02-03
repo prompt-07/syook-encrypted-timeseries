@@ -1,14 +1,11 @@
 const {WebSocketServer} = require('ws')
-const mongoose = require('mongoose');
 const {validateIncomingData} = require('./utils/helpers') 
 const wss = new WebSocketServer({ port: 3000 });
 
 const {saveToDb} = require('./services/db-service')
+const establishConn = require('./services/conn')
 
-const mongoDB = 'mongodb://localhost/syookDB';
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-    console.log('connected-to-db')
-}).catch(err => console.log(err))
+establishConn()
 
 wss.on('connection', function connection(ws) {
   try {

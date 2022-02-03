@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config()
 const {fetchEncryptedString,
     validateIncomingData} = require('./utils/helpers')
 const WebSocket = require('ws');
