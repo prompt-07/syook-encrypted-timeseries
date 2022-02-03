@@ -21,7 +21,7 @@ function getRandomMessages(){
   const citiesLength = jsonData.cities.length;
 
   let arr = []
-  for(let i=0; i<4;i++){
+  for(let i=0; i<currRandomLength;i++){
     let currName = jsonData.names[getRandom(0,namesLength)]
     let currOrg = jsonData.cities[getRandom(0,citiesLength)]
     let currDest = jsonData.cities[getRandom(0,citiesLength)]

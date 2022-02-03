@@ -5,6 +5,7 @@ const wss = new WebSocketServer({ port: 3000 });
 const {saveToDb} = require('./services/db-service')
 const establishConn = require('./services/conn')
 
+console.log('listener-started')
 establishConn()
 
 wss.on('connection', function connection(ws) {
@@ -16,6 +17,7 @@ wss.on('connection', function connection(ws) {
 
         if(validatedData!=null){
           //store to DB
+          console.log(validatedData)
           let date  = new Date()
           saveToDb(validatedData.name, validatedData.origin, validatedData.destination,date)
         }
@@ -27,6 +29,6 @@ wss.on('connection', function connection(ws) {
     })
   }
   catch (err) {
-    console.error("Connection error!!", err);
+    console.log("Connection error!!", err);
   }
 });
